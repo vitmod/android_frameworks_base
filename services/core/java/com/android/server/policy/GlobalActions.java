@@ -288,7 +288,8 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 mItems.add(new PowerAction());
                 // reboot to other os
                 File ubuntu_f = new File("/dev/block/linux");
-                File libreelec_f = new File("/dev/block/libreelec");
+		//File libreelec_f = new File("/dev/block/libreelec");
+                File libreelec_f = new File("/dev/block/misc");//vit add for test
                 boolean hasUbuntu = ubuntu_f.exists();
                 boolean hasLibreELEC = libreelec_f.exists();
                 mStorageManager = mContext.getSystemService(StorageManager.class);
@@ -308,6 +309,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                             }
                     }
                 }
+		hasLibreELEC = true;//vit add for test
                 Log.d(TAG,"hasUbuntu = "+hasUbuntu+"   hasLibreELEC = "+hasLibreELEC);
                 if (hasUbuntu) {
                     mItems.add(new SinglePressAction(

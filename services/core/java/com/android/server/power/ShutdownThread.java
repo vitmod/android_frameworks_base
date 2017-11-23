@@ -245,7 +245,8 @@ public final class ShutdownThread extends Thread {
 
     public static void rebootLibreELEC(final Context context, String reason, boolean confirm) {
         try {
-          Runtime.getRuntime().exec("setbootenv ubootenv.var.bls libreelec");
+          //Runtime.getRuntime().exec("setbootenv ubootenv.var.bls libreelec");
+          Runtime.getRuntime().exec("setbootenv ubootenv.var.boot_part misc");//vit add for test
         } catch (IOException ioe) {
             throw new RuntimeException("Error running command setbootenv bls libreelec", ioe);
         }
